@@ -1,0 +1,53 @@
+# IDEs
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+.DS_Store
+
+# Build directories
+backend/SMA/build/
+backend/SMA/.gradle/
+backend/SMA/gradle/
+frontend/school-management-ui/dist/
+frontend/school-management-ui/node_modules/
+
+# Gradle
+.gradle
+*.gradle
+gradle-wrapper.jar
+
+# Maven
+target/
+*.jar
+*.war
+
+# Node
+node_modules/
+npm-debug.log
+yarn-error.log
+
+# Environment variables
+.env
+.env.local
+*.properties.local
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+logs/
+
+# Temporary files
+*.tmp
+*.bak
+*.swp
+
+# Angular
+.angular/
+
+# MySQL
+mysql_data/
