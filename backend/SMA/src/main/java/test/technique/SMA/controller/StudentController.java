@@ -1,9 +1,6 @@
 package test.technique.SMA.controller;
 
 import io.swagger.v3.oas.annotations.Operation;
-import io.swagger.v3.oas.annotations.media.Content;
-import io.swagger.v3.oas.annotations.media.Schema;
-import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.responses.ApiResponses;
 import io.swagger.v3.oas.annotations.security.SecurityRequirement;
 import io.swagger.v3.oas.annotations.tags.Tag;
@@ -41,9 +38,9 @@ public class StudentController {
     @GetMapping
     @Operation(summary = "Get all students", description = "Retrieve all students with pagination")
     @ApiResponses(value = {
-        @ApiResponse(responseCode = "200", description = "Students retrieved successfully"),
-        @ApiResponse(responseCode = "401", description = "Unauthorized"),
-        @ApiResponse(responseCode = "500", description = "Server error")
+        @io.swagger.v3.oas.annotations.responses.ApiResponse(responseCode = "200", description = "Students retrieved successfully"),
+        @io.swagger.v3.oas.annotations.responses.ApiResponse(responseCode = "401", description = "Unauthorized"),
+        @io.swagger.v3.oas.annotations.responses.ApiResponse(responseCode = "500", description = "Server error")
     })
     public ResponseEntity<ApiResponse<?>> getAllStudents(Pageable pageable) {
         Page<StudentDTO> students = studentService.getAllStudents(pageable);
@@ -53,10 +50,10 @@ public class StudentController {
     @GetMapping("/{id}")
     @Operation(summary = "Get student by ID", description = "Retrieve a specific student by their ID")
     @ApiResponses(value = {
-        @ApiResponse(responseCode = "200", description = "Student found"),
-        @ApiResponse(responseCode = "401", description = "Unauthorized"),
-        @ApiResponse(responseCode = "404", description = "Student not found"),
-        @ApiResponse(responseCode = "500", description = "Server error")
+        @io.swagger.v3.oas.annotations.responses.ApiResponse(responseCode = "200", description = "Student found"),
+        @io.swagger.v3.oas.annotations.responses.ApiResponse(responseCode = "401", description = "Unauthorized"),
+        @io.swagger.v3.oas.annotations.responses.ApiResponse(responseCode = "404", description = "Student not found"),
+        @io.swagger.v3.oas.annotations.responses.ApiResponse(responseCode = "500", description = "Server error")
     })
     public ResponseEntity<ApiResponse<?>> getStudentById(@PathVariable Long id) {
         StudentDTO student = studentService.getStudentById(id);
@@ -66,11 +63,11 @@ public class StudentController {
     @PostMapping
     @Operation(summary = "Create a new student", description = "Create a new student record")
     @ApiResponses(value = {
-        @ApiResponse(responseCode = "201", description = "Student created successfully"),
-        @ApiResponse(responseCode = "400", description = "Invalid request data"),
-        @ApiResponse(responseCode = "401", description = "Unauthorized"),
-        @ApiResponse(responseCode = "409", description = "Student already exists"),
-        @ApiResponse(responseCode = "500", description = "Server error")
+        @io.swagger.v3.oas.annotations.responses.ApiResponse(responseCode = "201", description = "Student created successfully"),
+        @io.swagger.v3.oas.annotations.responses.ApiResponse(responseCode = "400", description = "Invalid request data"),
+        @io.swagger.v3.oas.annotations.responses.ApiResponse(responseCode = "401", description = "Unauthorized"),
+        @io.swagger.v3.oas.annotations.responses.ApiResponse(responseCode = "409", description = "Student already exists"),
+        @io.swagger.v3.oas.annotations.responses.ApiResponse(responseCode = "500", description = "Server error")
     })
     public ResponseEntity<ApiResponse<?>> createStudent(@Valid @RequestBody StudentDTO studentDTO) {
         StudentDTO createdStudent = studentService.createStudent(studentDTO);
@@ -81,12 +78,12 @@ public class StudentController {
     @PutMapping("/{id}")
     @Operation(summary = "Update a student", description = "Update an existing student record")
     @ApiResponses(value = {
-        @ApiResponse(responseCode = "200", description = "Student updated successfully"),
-        @ApiResponse(responseCode = "400", description = "Invalid request data"),
-        @ApiResponse(responseCode = "401", description = "Unauthorized"),
-        @ApiResponse(responseCode = "404", description = "Student not found"),
-        @ApiResponse(responseCode = "409", description = "Username already exists"),
-        @ApiResponse(responseCode = "500", description = "Server error")
+        @io.swagger.v3.oas.annotations.responses.ApiResponse(responseCode = "200", description = "Student updated successfully"),
+        @io.swagger.v3.oas.annotations.responses.ApiResponse(responseCode = "400", description = "Invalid request data"),
+        @io.swagger.v3.oas.annotations.responses.ApiResponse(responseCode = "401", description = "Unauthorized"),
+        @io.swagger.v3.oas.annotations.responses.ApiResponse(responseCode = "404", description = "Student not found"),
+        @io.swagger.v3.oas.annotations.responses.ApiResponse(responseCode = "409", description = "Username already exists"),
+        @io.swagger.v3.oas.annotations.responses.ApiResponse(responseCode = "500", description = "Server error")
     })
     public ResponseEntity<ApiResponse<?>> updateStudent(@PathVariable Long id, @Valid @RequestBody StudentDTO studentDTO) {
         StudentDTO updatedStudent = studentService.updateStudent(id, studentDTO);
@@ -96,10 +93,10 @@ public class StudentController {
     @DeleteMapping("/{id}")
     @Operation(summary = "Delete a student", description = "Delete a student record by ID")
     @ApiResponses(value = {
-        @ApiResponse(responseCode = "200", description = "Student deleted successfully"),
-        @ApiResponse(responseCode = "401", description = "Unauthorized"),
-        @ApiResponse(responseCode = "404", description = "Student not found"),
-        @ApiResponse(responseCode = "500", description = "Server error")
+        @io.swagger.v3.oas.annotations.responses.ApiResponse(responseCode = "200", description = "Student deleted successfully"),
+        @io.swagger.v3.oas.annotations.responses.ApiResponse(responseCode = "401", description = "Unauthorized"),
+        @io.swagger.v3.oas.annotations.responses.ApiResponse(responseCode = "404", description = "Student not found"),
+        @io.swagger.v3.oas.annotations.responses.ApiResponse(responseCode = "500", description = "Server error")
     })
     public ResponseEntity<ApiResponse<?>> deleteStudent(@PathVariable Long id) {
         studentService.deleteStudent(id);
@@ -109,9 +106,9 @@ public class StudentController {
     @GetMapping("/search")
     @Operation(summary = "Search students by username", description = "Search for students by username pattern")
     @ApiResponses(value = {
-        @ApiResponse(responseCode = "200", description = "Search completed successfully"),
-        @ApiResponse(responseCode = "401", description = "Unauthorized"),
-        @ApiResponse(responseCode = "500", description = "Server error")
+        @io.swagger.v3.oas.annotations.responses.ApiResponse(responseCode = "200", description = "Search completed successfully"),
+        @io.swagger.v3.oas.annotations.responses.ApiResponse(responseCode = "401", description = "Unauthorized"),
+        @io.swagger.v3.oas.annotations.responses.ApiResponse(responseCode = "500", description = "Server error")
     })
     public ResponseEntity<ApiResponse<?>> searchStudents(@RequestParam String username, Pageable pageable) {
         Page<StudentDTO> students = studentService.searchStudentsByUsername(username, pageable);
@@ -121,9 +118,9 @@ public class StudentController {
     @GetMapping("/filter/level")
     @Operation(summary = "Filter students by level", description = "Filter students by their study level")
     @ApiResponses(value = {
-        @ApiResponse(responseCode = "200", description = "Filter completed successfully"),
-        @ApiResponse(responseCode = "401", description = "Unauthorized"),
-        @ApiResponse(responseCode = "500", description = "Server error")
+        @io.swagger.v3.oas.annotations.responses.ApiResponse(responseCode = "200", description = "Filter completed successfully"),
+        @io.swagger.v3.oas.annotations.responses.ApiResponse(responseCode = "401", description = "Unauthorized"),
+        @io.swagger.v3.oas.annotations.responses.ApiResponse(responseCode = "500", description = "Server error")
     })
     public ResponseEntity<ApiResponse<?>> filterByLevel(@RequestParam StudentLevel level, Pageable pageable) {
         Page<StudentDTO> students = studentService.filterStudentsByLevel(level, pageable);
@@ -133,9 +130,9 @@ public class StudentController {
     @GetMapping("/export")
     @Operation(summary = "Export students to CSV", description = "Export all students data to a CSV file")
     @ApiResponses(value = {
-        @ApiResponse(responseCode = "200", description = "CSV exported successfully"),
-        @ApiResponse(responseCode = "401", description = "Unauthorized"),
-        @ApiResponse(responseCode = "500", description = "Server error")
+        @io.swagger.v3.oas.annotations.responses.ApiResponse(responseCode = "200", description = "CSV exported successfully"),
+        @io.swagger.v3.oas.annotations.responses.ApiResponse(responseCode = "401", description = "Unauthorized"),
+        @io.swagger.v3.oas.annotations.responses.ApiResponse(responseCode = "500", description = "Server error")
     })
     public ResponseEntity<byte[]> exportStudents() throws IOException {
         byte[] csvData = csvService.exportStudents();
@@ -148,10 +145,10 @@ public class StudentController {
     @PostMapping("/import")
     @Operation(summary = "Import students from CSV", description = "Import students data from a CSV file")
     @ApiResponses(value = {
-        @ApiResponse(responseCode = "200", description = "CSV imported successfully"),
-        @ApiResponse(responseCode = "400", description = "Invalid CSV file"),
-        @ApiResponse(responseCode = "401", description = "Unauthorized"),
-        @ApiResponse(responseCode = "500", description = "Server error")
+        @io.swagger.v3.oas.annotations.responses.ApiResponse(responseCode = "200", description = "CSV imported successfully"),
+        @io.swagger.v3.oas.annotations.responses.ApiResponse(responseCode = "400", description = "Invalid CSV file"),
+        @io.swagger.v3.oas.annotations.responses.ApiResponse(responseCode = "401", description = "Unauthorized"),
+        @io.swagger.v3.oas.annotations.responses.ApiResponse(responseCode = "500", description = "Server error")
     })
     public ResponseEntity<ApiResponse<?>> importStudents(@RequestParam("file") MultipartFile file) throws IOException {
         List<StudentDTO> students = csvService.importStudents(file);
